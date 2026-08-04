@@ -1,0 +1,15 @@
+# Core (required for simulation + analysis)
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.13.1
+statsmodels==0.14.2
+networkx==3.3
+matplotlib==3.9.0
+PyYAML==6.0.1
+openai==1.35.3          # OpenAI-compatible client for local vLLM server
+requests==2.32.3
+tqdm==4.66.4
+
+# GPU stack (install on the experiment machine; versions known-good together)
+# torch==2.3.1  vllm==0.5.4  transformers==4.43.3  peft==0.11.1  trl==0.9.6
+# datasets==2.20.0  accelerate==0.33.0  bitsandbytes==0.43.1  detoxify==0.5.2

@@ -1,0 +1,4 @@
+inherit: ../base.yaml
+name: e1q_norm_baseline
+llm:
+  model: Qwen/Qwen2.5-14B-Instruct-AWQ

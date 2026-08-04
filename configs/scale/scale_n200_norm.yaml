@@ -1,0 +1,4 @@
+inherit: ../base.yaml
+society:
+  n_agents: 200
+name: scale_n200_norm

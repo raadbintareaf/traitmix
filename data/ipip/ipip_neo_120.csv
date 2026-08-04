@@ -1,0 +1,121 @@
+item_text,trait,keyed,item_no,facet
+Worry about things.,neuroticism,+,1,N1: Anxiety
+Make friends easily.,extraversion,+,2,E1: Friendliness
+Have a vivid imagination.,openness,+,3,O1: Imagination
+Trust others.,agreeableness,+,4,A1: Trust
+Complete tasks successfully.,conscientiousness,+,5,C1: Self-Efficacy
+Get angry easily.,neuroticism,+,6,N2: Anger
+Love large parties.,extraversion,+,7,E2: Gregariousness
+Believe in the importance of art.,openness,+,8,O2: Artistic Interests
+Use others for my own ends.,agreeableness,-,9,A2: Morality
+Like to tidy up.,conscientiousness,+,10,C2: Orderliness
+Often feel blue.,neuroticism,+,11,N3: Depression
+Take charge.,extraversion,+,12,E3: Assertiveness
+Experience my emotions intensely.,openness,+,13,O3: Emotionality
+Love to help others.,agreeableness,+,14,A3: Altruism
+Keep my promises.,conscientiousness,+,15,C3: Dutifulness
+Find it difficult to approach others.,neuroticism,+,16,N4: Self-Consciousness
+Am always busy.,extraversion,+,17,E4: Activity Level
+Prefer variety to routine.,openness,+,18,O4: Adventurousness
+Love a good fight.,agreeableness,-,19,A4: Cooperation
+Work hard.,conscientiousness,+,20,C4: Achievement-Striving
+Go on binges.,neuroticism,+,21,N5: Immoderation
+Love excitement.,extraversion,+,22,E5: Excitement-Seeking
+Love to read challenging material.,openness,+,23,O5: Intellect
+Believe that I am better than others.,agreeableness,-,24,A5: Modesty
+Am always prepared.,conscientiousness,+,25,C5: Self-Discipline
+Panic easily.,neuroticism,+,26,N6: Vulnerability
+Radiate joy.,extraversion,+,27,E6: Cheerfulness
+Tend to vote for liberal political candidates.,openness,+,28,O6: Liberalism
+Sympathize with the homeless.,agreeableness,+,29,A6: Sympathy
+Jump into things without thinking.,conscientiousness,-,30,C6: Cautiousness
+Fear for the worst.,neuroticism,+,31,N1: Anxiety
+Feel comfortable around people.,extraversion,+,32,E1: Friendliness
+Enjoy wild flights of fantasy.,openness,+,33,O1: Imagination
+Believe that others have good intentions.,agreeableness,+,34,A1: Trust
+Excel in what I do.,conscientiousness,+,35,C1: Self-Efficacy
+Get irritated easily.,neuroticism,+,36,N2: Anger
+Talk to a lot of different people at parties.,extraversion,+,37,E2: Gregariousness
+See beauty in things that others might not notice.,openness,+,38,O2: Artistic Interests
+Cheat to get ahead.,agreeableness,-,39,A2: Morality
+Often forget to put things back in their proper place.,conscientiousness,-,40,C2: Orderliness
+Dislike myself.,neuroticism,+,41,N3: Depression
+Try to lead others.,extraversion,+,42,E3: Assertiveness
+Feel others' emotions.,openness,+,43,O3: Emotionality
+Am concerned about others.,agreeableness,+,44,A3: Altruism
+Tell the truth.,conscientiousness,+,45,C3: Dutifulness
+Am afraid to draw attention to myself.,neuroticism,+,46,N4: Self-Consciousness
+Am always on the go.,extraversion,+,47,E4: Activity Level
+Prefer to stick with things that I know.,openness,-,48,O4: Adventurousness
+Yell at people.,agreeableness,-,49,A4: Cooperation
+Do more than what's expected of me.,conscientiousness,+,50,C4: Achievement-Striving
+Rarely overindulge.,neuroticism,-,51,N5: Immoderation
+Seek adventure.,extraversion,+,52,E5: Excitement-Seeking
+Avoid philosophical discussions.,openness,-,53,O5: Intellect
+Think highly of myself.,agreeableness,-,54,A5: Modesty
+Carry out my plans.,conscientiousness,+,55,C5: Self-Discipline
+Become overwhelmed by events.,neuroticism,+,56,N6: Vulnerability
+Have a lot of fun.,extraversion,+,57,E6: Cheerfulness
+Believe that there is no absolute right and wrong.,openness,+,58,O6: Liberalism
+Feel sympathy for those who are worse off than myself.,agreeableness,+,59,A6: Sympathy
+Make rash decisions.,conscientiousness,-,60,C6: Cautiousness
+Am afraid of many things.,neuroticism,+,61,N1: Anxiety
+Avoid contacts with others.,extraversion,-,62,E1: Friendliness
+Love to daydream.,openness,+,63,O1: Imagination
+Trust what people say.,agreeableness,+,64,A1: Trust
+Handle tasks smoothly.,conscientiousness,+,65,C1: Self-Efficacy
+Lose my temper.,neuroticism,+,66,N2: Anger
+Prefer to be alone.,extraversion,-,67,E2: Gregariousness
+Do not like poetry.,openness,-,68,O2: Artistic Interests
+Take advantage of others.,agreeableness,-,69,A2: Morality
+Leave a mess in my room.,conscientiousness,-,70,C2: Orderliness
+Am often down in the dumps.,neuroticism,+,71,N3: Depression
+Take control of things.,extraversion,+,72,E3: Assertiveness
+Rarely notice my emotional reactions.,openness,-,73,O3: Emotionality
+Am indifferent to the feelings of others.,agreeableness,-,74,A3: Altruism
+Break rules.,conscientiousness,-,75,C3: Dutifulness
+Only feel comfortable with friends.,neuroticism,+,76,N4: Self-Consciousness
+Do a lot in my spare time.,extraversion,+,77,E4: Activity Level
+Dislike changes.,openness,-,78,O4: Adventurousness
+Insult people.,agreeableness,-,79,A4: Cooperation
+Do just enough work to get by.,conscientiousness,-,80,C4: Achievement-Striving
+Easily resist temptations.,neuroticism,-,81,N5: Immoderation
+Enjoy being reckless.,extraversion,+,82,E5: Excitement-Seeking
+Have difficulty understanding abstract ideas.,openness,-,83,O5: Intellect
+Have a high opinion of myself.,agreeableness,-,84,A5: Modesty
+Waste my time.,conscientiousness,-,85,C5: Self-Discipline
+Feel that I'm unable to deal with things.,neuroticism,+,86,N6: Vulnerability
+Love life.,extraversion,+,87,E6: Cheerfulness
+Tend to vote for conservative political candidates.,openness,-,88,O6: Liberalism
+Am not interested in other people's problems.,agreeableness,-,89,A6: Sympathy
+Rush into things.,conscientiousness,-,90,C6: Cautiousness
+Get stressed out easily.,neuroticism,+,91,N1: Anxiety
+Keep others at a distance.,extraversion,-,92,E1: Friendliness
+Like to get lost in thought.,openness,+,93,O1: Imagination
+Distrust people.,agreeableness,-,94,A1: Trust
+Know how to get things done.,conscientiousness,+,95,C1: Self-Efficacy
+Am not easily annoyed.,neuroticism,-,96,N2: Anger
+Avoid crowds.,extraversion,-,97,E2: Gregariousness
+Do not enjoy going to art museums.,openness,-,98,O2: Artistic Interests
+Obstruct others' plans.,agreeableness,-,99,A2: Morality
+Leave my belongings around.,conscientiousness,-,100,C2: Orderliness
+Feel comfortable with myself.,neuroticism,-,101,N3: Depression
+Wait for others to lead the way.,extraversion,-,102,E3: Assertiveness
+Don't understand people who get emotional.,openness,-,103,O3: Emotionality
+Take no time for others.,agreeableness,-,104,A3: Altruism
+Break my promises.,conscientiousness,-,105,C3: Dutifulness
+Am not bothered by difficult social situations.,neuroticism,-,106,N4: Self-Consciousness
+Like to take it easy.,extraversion,-,107,E4: Activity Level
+Am attached to conventional ways.,openness,-,108,O4: Adventurousness
+Get back at others.,agreeableness,-,109,A4: Cooperation
+Put little time and effort into my work.,conscientiousness,-,110,C4: Achievement-Striving
+Am able to control my cravings.,neuroticism,-,111,N5: Immoderation
+Act wild and crazy.,extraversion,+,112,E5: Excitement-Seeking
+Am not interested in theoretical discussions.,openness,-,113,O5: Intellect
+Boast about my virtues.,agreeableness,-,114,A5: Modesty
+Have difficulty starting tasks.,conscientiousness,-,115,C5: Self-Discipline
+Remain calm under pressure.,neuroticism,-,116,N6: Vulnerability
+Look at the bright side of life.,extraversion,+,117,E6: Cheerfulness
+Believe that we should be tough on crime.,openness,-,118,O6: Liberalism
+Try not to think about the needy.,agreeableness,-,119,A6: Sympathy
+Act without thinking.,conscientiousness,-,120,C6: Cautiousness

@@ -1,0 +1,15 @@
+[
+ {
+  "id": "T_guncontrol",
+  "statement": "Stricter national gun-control laws would make society safer overall."
+ },
+ {
+  "id": "T_immigration",
+  "statement": "Current levels of immigration benefit the country more than they cost it."
+ },
+ {
+  "id": "T_neutral_filler",
+  "statement": "Pineapple belongs on pizza.",
+  "role": "filler"
+ }
+]

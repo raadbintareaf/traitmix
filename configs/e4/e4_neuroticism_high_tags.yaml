@@ -1,0 +1,14 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.5
+    neuroticism: 0.8
+  sigma: 0.15
+name: e4_neuroticism_high_tags
+induction:
+  arm: tags
+llm:
+  model: big5

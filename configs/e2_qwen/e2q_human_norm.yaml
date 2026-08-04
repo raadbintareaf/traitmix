@@ -1,0 +1,21 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.6069
+    conscientiousness: 0.6844
+    extraversion: 0.6056
+    agreeableness: 0.6794
+    neuroticism: 0.4438
+  sigma:
+    openness: 0.1288
+    conscientiousness: 0.1463
+    extraversion: 0.1475
+    agreeableness: 0.1256
+    neuroticism: 0.1663
+  corr: independent
+name: e2q_human_norm
+_norms_source: Kajonius & Johnson (2019), Europe's Journal of Psychology 15(2), 260-275,
+  doi:10.5964/ejop.v15i2.1671, Table A1 (N=320,128). Domain scales 4-20 rescaled to
+  [0,1] as (M-4)/16.
+llm:
+  model: Qwen/Qwen2.5-14B-Instruct-AWQ

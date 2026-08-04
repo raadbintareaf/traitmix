@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the accompanying article."
+title: "TraitMix: personality composition, polarization and collective intelligence in LLM-based social simulations"
+authors:
+  - family-names: "Bin Tareaf"
+    given-names: "Raad"
+    affiliation: "German University of Digital Science"
+    email: "raad.bintareaf@german-uds.de"
+  - family-names: "Loucif"
+    given-names: "Samia"
+    affiliation: "Zayed University"
+  - family-names: "Al-Rajab"
+    given-names: "Murad"
+    affiliation: "Abu Dhabi University"
+license: MIT
+repository-code: "https://github.com/REPLACE/traitmix"
+preferred-citation:
+  type: article
+  title: "Diverse Minds, Divided Networks? Personality Composition, Polarization, and Collective Intelligence in LLM-Based Social Simulations"
+  authors:
+    - family-names: "Bin Tareaf"
+      given-names: "Raad"
+    - family-names: "Loucif"
+      given-names: "Samia"
+    - family-names: "Al-Rajab"
+      given-names: "Murad"
+  year: 2026
+  journal: "TO BE COMPLETED ON ACCEPTANCE"

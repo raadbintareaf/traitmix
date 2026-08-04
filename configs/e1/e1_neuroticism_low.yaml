@@ -1,0 +1,10 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.5
+    neuroticism: 0.2
+  sigma: 0.15
+name: e1_neuroticism_low

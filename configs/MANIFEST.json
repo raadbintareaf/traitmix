@@ -1,0 +1,179 @@
+{
+ "E1": {
+  "configs": [
+   "e1/e1_norm_baseline.yaml",
+   "e1/e1_openness_high.yaml",
+   "e1/e1_openness_low.yaml",
+   "e1/e1_conscientiousness_high.yaml",
+   "e1/e1_conscientiousness_low.yaml",
+   "e1/e1_extraversion_high.yaml",
+   "e1/e1_extraversion_low.yaml",
+   "e1/e1_agreeableness_high.yaml",
+   "e1/e1_agreeableness_low.yaml",
+   "e1/e1_neuroticism_high.yaml",
+   "e1/e1_neuroticism_low.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E1_QWEN": {
+  "configs": [
+   "e1_qwen/e1q_norm_baseline.yaml",
+   "e1_qwen/e1q_openness_high.yaml",
+   "e1_qwen/e1q_openness_low.yaml",
+   "e1_qwen/e1q_conscientiousness_high.yaml",
+   "e1_qwen/e1q_conscientiousness_low.yaml",
+   "e1_qwen/e1q_extraversion_high.yaml",
+   "e1_qwen/e1q_extraversion_low.yaml",
+   "e1_qwen/e1q_agreeableness_high.yaml",
+   "e1_qwen/e1q_agreeableness_low.yaml",
+   "e1_qwen/e1q_neuroticism_high.yaml",
+   "e1_qwen/e1q_neuroticism_low.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E2": {
+  "configs": [
+   "e2/e2_homog.yaml",
+   "e2/e2_mid.yaml",
+   "e2/e2_diverse.yaml",
+   "e2/e2_human_corr.yaml",
+   "e2/e2_human_norm.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E3": {
+  "configs": [
+   "e3/e3_O2_A2.yaml",
+   "e3/e3_O2_A5.yaml",
+   "e3/e3_O2_A8.yaml",
+   "e3/e3_O5_A2.yaml",
+   "e3/e3_O5_A5.yaml",
+   "e3/e3_O5_A8.yaml",
+   "e3/e3_O8_A2.yaml",
+   "e3/e3_O8_A5.yaml",
+   "e3/e3_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E4": {
+  "configs": [
+   "e4/e4_norm_baseline_tags.yaml",
+   "e4/e4_openness_high_tags.yaml",
+   "e4/e4_openness_low_tags.yaml",
+   "e4/e4_agreeableness_high_tags.yaml",
+   "e4/e4_neuroticism_high_tags.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E5": {
+  "configs": [
+   "e5/e5_norm_baseline__ws.yaml",
+   "e5/e5_norm_baseline__er.yaml",
+   "e5/e5_norm_baseline__rho_lo.yaml",
+   "e5/e5_norm_baseline__rho_hi.yaml",
+   "e5/e5_norm_baseline__mem.yaml",
+   "e5/e5_norm_baseline__feed.yaml",
+   "e5/e5_norm_baseline__temp.yaml",
+   "e5/e5_norm_baseline__qwen.yaml",
+   "e5/e5_norm_baseline__gemma.yaml",
+   "e5/e5_openness_high__ws.yaml",
+   "e5/e5_openness_high__er.yaml",
+   "e5/e5_openness_high__rho_lo.yaml",
+   "e5/e5_openness_high__rho_hi.yaml",
+   "e5/e5_openness_high__mem.yaml",
+   "e5/e5_openness_high__feed.yaml",
+   "e5/e5_openness_high__temp.yaml",
+   "e5/e5_openness_high__qwen.yaml",
+   "e5/e5_openness_high__gemma.yaml",
+   "e5/e5_neuroticism_high__ws.yaml",
+   "e5/e5_neuroticism_high__er.yaml",
+   "e5/e5_neuroticism_high__rho_lo.yaml",
+   "e5/e5_neuroticism_high__rho_hi.yaml",
+   "e5/e5_neuroticism_high__mem.yaml",
+   "e5/e5_neuroticism_high__feed.yaml",
+   "e5/e5_neuroticism_high__temp.yaml",
+   "e5/e5_neuroticism_high__qwen.yaml",
+   "e5/e5_neuroticism_high__gemma.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3
+  ]
+ },
+ "SCALE": {
+  "configs": [
+   "scale/scale_n200_norm.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3
+  ]
+ },
+ "E2_QWEN": {
+  "configs": [
+   "e2_qwen/e2q_diverse.yaml",
+   "e2_qwen/e2q_homog.yaml",
+   "e2_qwen/e2q_human_norm.yaml",
+   "e2_qwen/e2q_mid.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E3_QWEN": {
+  "configs": [
+   "e3_qwen/e3q_O2_A2.yaml",
+   "e3_qwen/e3q_O2_A5.yaml",
+   "e3_qwen/e3q_O2_A8.yaml",
+   "e3_qwen/e3q_O5_A2.yaml",
+   "e3_qwen/e3q_O5_A5.yaml",
+   "e3_qwen/e3q_O5_A8.yaml",
+   "e3_qwen/e3q_O8_A2.yaml",
+   "e3_qwen/e3q_O8_A5.yaml",
+   "e3_qwen/e3q_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ }
+}

@@ -1,0 +1,4 @@
+inherit: ../base.yaml
+name: e5_norm_baseline__gemma
+llm:
+  model: google/gemma-2-9b-it

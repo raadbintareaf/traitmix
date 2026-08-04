@@ -1,0 +1,10 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.2
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.8
+    neuroticism: 0.5
+  sigma: 0.15
+name: e3_O2_A8

@@ -1,0 +1,12 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.5
+    neuroticism: 0.8
+  sigma: 0.15
+name: e5_neuroticism_high__rho_lo
+society:
+  activation_prob: 0.2

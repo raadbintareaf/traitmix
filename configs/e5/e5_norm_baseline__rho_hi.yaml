@@ -1,0 +1,4 @@
+inherit: ../base.yaml
+name: e5_norm_baseline__rho_hi
+society:
+  activation_prob: 0.6

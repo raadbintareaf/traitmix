@@ -1,0 +1,12 @@
+inherit: base.yaml
+name: smoke
+society: {n_agents: 8, rounds: 4, activation_prob: 0.6, probe_every: 2, feed_size: 5, memory_k: 4}
+llm: {backend: mock}
+ci:
+  n_estimation: 1
+  est_pre_rounds: [1]
+  est_post_rounds: [3]
+  n_hidden_profile: 1
+  hp_pre_rounds: [2]
+  hp_post_rounds: [4]
+  require_truths: false

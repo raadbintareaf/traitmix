@@ -1,0 +1,17 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.5
+    neuroticism: 0.5
+  sigma:
+    openness: 0.25
+    conscientiousness: 0.25
+    extraversion: 0.25
+    agreeableness: 0.25
+    neuroticism: 0.25
+  corr: independent
+  _VERIFY: REPLACE with cited BFI-2 norms in notebook 01
+name: e2_human_corr
