@@ -1,0 +1,32 @@
+\begin{table}[t]\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Results ledger: every quantity quoted in the article, with the file, column and aggregation that produced it.}
+\label{tab:ledger}
+\begin{tabular}{@{}p{4.0cm}p{2.0cm}p{3.1cm}p{4.2cm}@{}}
+\toprule
+Quantity & Cited in & Value & Source and aggregation \\
+\midrule
+Total analysed runs & Abstract; Sec. 4; Sec. 5 & 991 & derived\_results.csv; row count after excluding the discarded model, the benchmark run and the exposure seeds \\[2pt]
+Primary-model runs & Sec. 5.7 & 258 & derived\_results.csv; runs of the primary model on the two-topic design \\[2pt]
+e1\_agreeableness\_high vs baseline, crosscut\_rate & Sec. 5.2 & -0.113 (dz -2.33, n 8) & derived\_results.csv; mean paired difference over seeds, matched by seed \\[2pt]
+e1\_agreeableness\_high vs baseline, pol\_var & Sec. 5.2 & -0.465 (dz -1.69, n 8) & derived\_results.csv; mean paired difference over seeds, matched by seed \\[2pt]
+e1\_neuroticism\_high vs baseline, pol\_extremity & Sec. 5.2 & +0.238 (dz +2.66, n 8) & derived\_results.csv; mean paired difference over seeds, matched by seed \\[2pt]
+e2\_homog vs baseline, pol\_var & Sec. 5.4 & -0.772 (dz -3.24, n 8) & derived\_results.csv; mean paired difference over seeds, matched by seed \\[2pt]
+e2\_human\_norm vs baseline, pol\_ei & Sec. 5.4 & +0.466 (dz +3.64, n 8) & derived\_results.csv; mean paired difference over seeds, matched by seed \\[2pt]
+e2\_human\_norm vs baseline, CI\_accuracy\_z & Sec. 5.4 & -0.921 (dz -1.41, n 8) & derived\_results.csv; mean paired difference over seeds, matched by seed \\[2pt]
+e2\_diverse vs baseline, pol\_var & Sec. 5.4 & +0.318 (dz +1.11, n 8) & derived\_results.csv; mean paired difference over seeds, matched by seed \\[2pt]
+Cross-cutting vs collective accuracy & Abstract; Sec. 5.7 & r = +0.409 & derived\_results.csv; Pearson over primary-model runs; accuracy standardised within model \\[2pt]
+Filler-topic control & Sec. 5.1; Fig. 4 & r = -0.061, p = 0.332, n = 258 & derived\_results.csv; Pearson, primary model only \\[2pt]
+Realised dispersion vs opinion variance & Sec. 5.1; Fig. 4 & r = +0.480, n = 258 & realized\_traits.csv + derived\_results.csv; Pearson across primary-model runs \\[2pt]
+Heterogeneity dose-response & Sec. 5.4 & r = +0.966, n = 24 & realized\_traits.csv + derived\_results.csv; Pearson within the heterogeneity family, human-calibrated excluded \\[2pt]
+O x A interaction, Llama-3.1-8B & Sec. 5.5 & b = -3.863, p = 0.0300, R2 = 0.698 & derived\_results.csv; OLS on the nine cell means; reduced model without quadratic terms \\[2pt]
+O x A interaction, Qwen2.5-7B & Sec. 5.9 & b = -0.018, p = 0.9950, R2 = 0.777 & derived\_results.csv; OLS on the nine cell means; reduced model without quadratic terms \\[2pt]
+O x A interaction, Qwen2.5-14B & Sec. 5.9 & b = -3.249, p = 0.0046, R2 = 0.945 & derived\_results.csv; OLS on the nine cell means; reduced model without quadratic terms \\[2pt]
+O x A interaction, Qwen2.5-32B & Sec. 5.9 & b = -0.979, p = 0.0170, R2 = 0.908 & derived\_results.csv; OLS on the nine cell means; reduced model without quadratic terms \\[2pt]
+R1 probe-anchor ablation: agreement with published & Sec. 5.1 & rank rho = +0.620, signs 29/36 & derived\_results.csv; condition effects computed against each variant's own baseline \\[2pt]
+R2 recommender ablation: agreement with published & Sec. 5.1 & rank rho = +0.979, signs 33/36 & derived\_results.csv; condition effects computed against each variant's own baseline \\[2pt]
+Estimation-item exposure & Sec. 3.4; Sec. 5.6 & 8 announcements, 34.7 replies, 38/100 agents engaged & ci\_exposure.csv; mean over three baseline runs with checkpoints retained \\[2pt]
+\bottomrule
+\end{tabular}
+\end{table}

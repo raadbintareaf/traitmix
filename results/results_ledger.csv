@@ -1,0 +1,21 @@
+quantity,cited_in,value,source,aggregation
+Total analysed runs,Abstract; Sec. 4; Sec. 5,991,derived_results.csv,"row count after excluding the discarded model, the benchmark run and the exposure seeds"
+Primary-model runs,Sec. 5.7,258,derived_results.csv,runs of the primary model on the two-topic design
+"e1_agreeableness_high vs baseline, crosscut_rate",Sec. 5.2,"-0.113 (dz -2.33, n 8)",derived_results.csv,"mean paired difference over seeds, matched by seed"
+"e1_agreeableness_high vs baseline, pol_var",Sec. 5.2,"-0.465 (dz -1.69, n 8)",derived_results.csv,"mean paired difference over seeds, matched by seed"
+"e1_neuroticism_high vs baseline, pol_extremity",Sec. 5.2,"+0.238 (dz +2.66, n 8)",derived_results.csv,"mean paired difference over seeds, matched by seed"
+"e2_homog vs baseline, pol_var",Sec. 5.4,"-0.772 (dz -3.24, n 8)",derived_results.csv,"mean paired difference over seeds, matched by seed"
+"e2_human_norm vs baseline, pol_ei",Sec. 5.4,"+0.466 (dz +3.64, n 8)",derived_results.csv,"mean paired difference over seeds, matched by seed"
+"e2_human_norm vs baseline, CI_accuracy_z",Sec. 5.4,"-0.921 (dz -1.41, n 8)",derived_results.csv,"mean paired difference over seeds, matched by seed"
+"e2_diverse vs baseline, pol_var",Sec. 5.4,"+0.318 (dz +1.11, n 8)",derived_results.csv,"mean paired difference over seeds, matched by seed"
+Cross-cutting vs collective accuracy,Abstract; Sec. 5.7,r = +0.409,derived_results.csv,Pearson over primary-model runs; accuracy standardised within model
+Filler-topic control,Sec. 5.1; Fig. 4,"r = -0.061, p = 0.332, n = 258",derived_results.csv,"Pearson, primary model only"
+Realised dispersion vs opinion variance,Sec. 5.1; Fig. 4,"r = +0.480, n = 258",realized_traits.csv + derived_results.csv,Pearson across primary-model runs
+Heterogeneity dose-response,Sec. 5.4,"r = +0.966, n = 24",realized_traits.csv + derived_results.csv,"Pearson within the heterogeneity family, human-calibrated excluded"
+"O x A interaction, Llama-3.1-8B",Sec. 5.5,"b = -3.863, p = 0.0300, R2 = 0.698",derived_results.csv,OLS on the nine cell means; reduced model without quadratic terms
+"O x A interaction, Qwen2.5-7B",Sec. 5.9,"b = -0.018, p = 0.9950, R2 = 0.777",derived_results.csv,OLS on the nine cell means; reduced model without quadratic terms
+"O x A interaction, Qwen2.5-14B",Sec. 5.9,"b = -3.249, p = 0.0046, R2 = 0.945",derived_results.csv,OLS on the nine cell means; reduced model without quadratic terms
+"O x A interaction, Qwen2.5-32B",Sec. 5.9,"b = -0.979, p = 0.0170, R2 = 0.908",derived_results.csv,OLS on the nine cell means; reduced model without quadratic terms
+R1 probe-anchor ablation: agreement with published,Sec. 5.1,"rank rho = +0.620, signs 29/36",derived_results.csv,condition effects computed against each variant's own baseline
+R2 recommender ablation: agreement with published,Sec. 5.1,"rank rho = +0.979, signs 33/36",derived_results.csv,condition effects computed against each variant's own baseline
+Estimation-item exposure,Sec. 3.4; Sec. 5.6,"8 announcements, 34.7 replies, 38/100 agents engaged",ci_exposure.csv,mean over three baseline runs with checkpoints retained

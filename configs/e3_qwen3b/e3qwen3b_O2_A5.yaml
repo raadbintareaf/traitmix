@@ -1,0 +1,15 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.2
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.5
+    neuroticism: 0.5
+  sigma: 0.15
+name: e3qwen3b_O2_A5
+llm:
+  backend: vllm
+  model: Qwen/Qwen2.5-3B-Instruct
+  base_url: http://localhost:8000/v1
+  max_workers: 8

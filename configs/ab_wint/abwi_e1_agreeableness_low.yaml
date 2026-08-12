@@ -1,0 +1,14 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.2
+    neuroticism: 0.5
+  sigma: 0.15
+name: abwi_e1_agreeableness_low
+society:
+  w_interest: 0.0
+llm:
+  max_workers: 32

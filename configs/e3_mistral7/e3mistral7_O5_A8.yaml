@@ -1,0 +1,15 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.8
+    neuroticism: 0.5
+  sigma: 0.15
+name: e3mistral7_O5_A8
+llm:
+  backend: vllm
+  model: mistralai/Mistral-7B-Instruct-v0.3
+  base_url: http://localhost:8000/v1
+  max_workers: 8

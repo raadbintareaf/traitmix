@@ -60,6 +60,9 @@ class Simulation:
         self.probe_every = cfg["society"].get("probe_every", 5)
         self.feed_size = cfg["society"].get("feed_size", 10)
         self.mem_k = cfg["society"].get("memory_k", 10)
+        # ablation switches; defaults reproduce the published runs exactly
+        self.probe_anchors = cfg["society"].get("probe_anchors", True)
+        self.interest_on_expressed = cfg["society"].get("interest_on_expressed", False)
         self.rng = np.random.default_rng(seed)
 
     # ---------- state ----------
@@ -94,8 +97,13 @@ class Simulation:
             interest = 1.0
             top = p.get("topic")
             if top in my_ops and p["author"] != i:
-                a_op = st["opinions"][top][p["author"]]
-                interest = 1.0 - abs(my_ops[top] - a_op) / 6.0
+                if self.interest_on_expressed:
+                    # a platform can only observe what an agent has actually posted
+                    a_op = st.get("expressed", {}).get(top, {}).get(p["author"])
+                else:
+                    a_op = st["opinions"][top][p["author"]]
+                interest = (1.0 if a_op is None
+                            else 1.0 - abs(my_ops[top] - a_op) / 6.0)
             net = 1.5 if p["author"] in followees else 1.0
             return (self.cfg["society"].get("w_interest", 1.0) * interest
                     + self.cfg["society"].get("w_hot", 0.5) * hot) * net
@@ -162,10 +170,15 @@ class Simulation:
                 cur = st["opinions"][t["id"]][i]
                 seen = [p for p in st["posts"][-100:] if p.get("topic") == t["id"] and p["author"] != i]
                 feed_avg = float(np.mean([st["opinions"][t["id"]][p["author"]] for p in seen])) if seen else 0.0
+                if self.probe_anchors:
+                    ctx = (f"For context, your previous answer / current opinion is {cur}, "
+                           f"and recent posts you saw lean toward a feed average "
+                           f"{feed_avg:.1f}. ")
+                else:
+                    ctx = ""      # R1 ablation: no previous-answer or feed-average anchor
                 u = (f"[PROBE] Privately, not visible to anyone: on a scale from -3 (strongly disagree) "
                      f"to +3 (strongly agree), what is your CURRENT view on: \"{t['statement']}\"? "
-                     f"For context, your previous answer / current opinion is {cur}, and recent posts you saw "
-                     f"lean toward a feed average {feed_avg:.1f}. {NO_ROLEPLAY}"
+                     f"{ctx}{NO_ROLEPLAY}"
                      f"Reply with a single integer between -3 and 3.")
                 prompts.append((self.sys_prompt(st, i), u)); meta.append((t["id"], i))
         outs = self.llm.generate_batch(prompts, max_tokens=6, temperature=0.3)
@@ -174,6 +187,8 @@ class Simulation:
             if v:
                 st["opinions"][tid][i] = int(np.clip(int(v.group()), -3, 3))
             st["op_history"].append((st["t_done"], tid, i, st["opinions"][tid][i]))
+            st.setdefault("expressed", {}).setdefault(tid, {})[i] = \
+                st["opinions"][tid][i]
 
     # ---------- CI tasks ----------
     def ci_phase(self, st, item, phase, truth=None):
@@ -215,6 +230,24 @@ class Simulation:
                 st["posts"].append({"id": len(st["posts"]), "author": self.n - 1, "round": st["t_done"],
                                     "text": f"Team question: {item['question']} What do people think? #estimate",
                                     "reply_to": None, "likes": 2, "topic": None})
+
+    @staticmethod
+    def _count_ci_exposure(st):
+        """Posts that mention a collective-intelligence item, and replies to them.
+
+        Reported so that exposure to the estimation task is a measured quantity rather
+        than an assumption (reviewer point R3).
+        """
+        ann = {p["id"] for p in st["posts"]
+               if "#estimate" in str(p.get("text", "")) or "#decision" in str(p.get("text", ""))}
+        replies = sum(1 for p in st["posts"] if p.get("reply_to") in ann)
+        mentions = sum(1 for p in st["posts"]
+                       if p["id"] not in ann
+                       and any(k in str(p.get("text", "")).lower()
+                               for k in ("#estimate", "#decision", "estimate", "guess")))
+        st["ci_posts"] = len(ann)
+        st["ci_replies"] = replies
+        st["ci_mentions"] = mentions
 
     # ---------- main loop ----------
     def run(self, topics, ci_schedule, ci_truths, resume=True):

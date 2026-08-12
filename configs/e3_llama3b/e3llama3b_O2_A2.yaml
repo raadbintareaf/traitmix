@@ -1,0 +1,15 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.2
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.2
+    neuroticism: 0.5
+  sigma: 0.15
+name: e3llama3b_O2_A2
+llm:
+  backend: vllm
+  model: meta-llama/Llama-3.2-3B-Instruct
+  base_url: http://localhost:8000/v1
+  max_workers: 8

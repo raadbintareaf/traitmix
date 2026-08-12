@@ -58,6 +58,14 @@ def run_one(cfg: dict, seed: int, llm=None, registry: Registry | None = None,
     row.update(telemetry.homogenization(state))
     if filler:
         row["filler_variance"] = telemetry.filler_variance(state, filler)
+    # exposure to the collective-intelligence items, so that it is reported rather than
+    # assumed, and the ablation switches in force, so the file states its own provenance
+    for _k in ("ci_posts", "ci_replies", "ci_mentions"):
+        row[_k] = state.get(_k)
+    _soc = cfg.get("society", {})
+    row["probe_anchors"] = _soc.get("probe_anchors", True)
+    row["w_interest"] = _soc.get("w_interest", 1.0)
+    row["interest_on_expressed"] = _soc.get("interest_on_expressed", False)
     row["runtime_s"] = round(time.time() - t0, 1)
     append_row(row)
     pd.DataFrame(state["op_history"], columns=["round", "topic", "agent", "opinion"]) \

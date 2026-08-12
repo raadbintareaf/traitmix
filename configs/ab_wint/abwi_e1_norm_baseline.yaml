@@ -1,0 +1,6 @@
+inherit: ../base.yaml
+name: abwi_e1_norm_baseline
+society:
+  w_interest: 0.0
+llm:
+  max_workers: 32

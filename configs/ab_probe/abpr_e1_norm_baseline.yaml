@@ -1,0 +1,6 @@
+inherit: ../base.yaml
+name: abpr_e1_norm_baseline
+society:
+  probe_anchors: false
+llm:
+  max_workers: 32

@@ -1,0 +1,14 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.5
+    neuroticism: 0.5
+  sigma: 0.25
+name: abpr_e2_diverse
+society:
+  probe_anchors: false
+llm:
+  max_workers: 32

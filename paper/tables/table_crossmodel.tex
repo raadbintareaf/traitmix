@@ -1,0 +1,26 @@
+\begin{table}[t]\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\caption{Cross-model replication of trait-level effects. Each cell is the difference from that model's own baseline.}
+\label{tab:crossmodel}
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{Opinion var.} & \multicolumn{3}{c}{Extremity} & \multicolumn{3}{c}{Cross-cut} \\
+Condition & L & Q14 & Q7 & L & Q14 & Q7 & L & Q14 & Q7 \\
+\midrule
+agreeableness high & -0.47 & \textbf{-0.20} & +0.30 & +0.19 & -0.05 & -0.03 & -0.12 & \textbf{-0.11} & \textbf{-0.04} \\
+agreeableness low & -0.20 & +0.37 & \textbf{-1.53} & +0.07 & \textbf{+0.15} & \textbf{+0.27} & -0.00 & \textbf{-0.09} & \textbf{-0.22} \\
+conscientiousness high & -0.15 & +0.03 & +0.10 & +0.19 & -0.03 & \textbf{+0.02} & -0.07 & +0.02 & \textbf{-0.03} \\
+conscientiousness low & -0.02 & \textbf{-0.06} & \textbf{-0.78} & -0.06 & \textbf{-0.03} & +0.08 & +0.08 & -0.03 & -0.11 \\
+extraversion high & -0.20 & \textbf{-0.03} & +0.23 & +0.05 & -0.05 & \textbf{+0.02} & -0.05 & \textbf{-0.10} & \textbf{-0.03} \\
+extraversion low & -0.12 & +0.11 & \textbf{-0.53} & +0.02 & \textbf{+0.05} & \textbf{+0.10} & +0.01 & \textbf{+0.08} & -0.12 \\
+neuroticism high & +0.28 & \textbf{+0.07} & -1.78 & +0.21 & \textbf{+0.16} & \textbf{+0.36} & +0.01 & \textbf{+0.03} & -0.26 \\
+neuroticism low & -0.14 & \textbf{-0.14} & +0.21 & +0.03 & -0.08 & -0.07 & -0.03 & \textbf{-0.07} & \textbf{-0.01} \\
+openness high & -0.30 & \textbf{-0.28} & +0.01 & +0.12 & -0.14 & \textbf{+0.01} & -0.07 & \textbf{-0.01} & \textbf{-0.03} \\
+openness low & -0.09 & +0.01 & \textbf{-0.94} & -0.01 & \textbf{-0.01} & +0.06 & +0.06 & -0.02 & -0.13 \\
+\midrule
+Sign agreement & \multicolumn{3}{c}{10/20} & \multicolumn{3}{c}{11/20} & \multicolumn{3}{c}{13/20} \\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize L = Llama-3.1-8B, Q14 = Qwen2.5-14B, Q7 = Qwen2.5-7B. Bold marks a replication cell whose sign agrees with the primary model. Only models passing induction validation (Table~\ref{tab:induction}) are included.
+\end{table}

@@ -1,0 +1,20 @@
+\begin{table}[t]\centering
+\scriptsize\setlength{\tabcolsep}{1.5pt}
+\caption{Response-surface regression on the nine cell means of the Openness $\times$ Agreeableness grid.}
+\label{tab:e3surface}
+\begin{tabular}{@{}llccccc@{}}
+\toprule
+Model & Outcome & cells & $R^2$ & $\mu_O$ & $\mu_A$ & $\mu_O\!\times\!\mu_A$ \\
+\midrule
+Llama-3.1-8B & Opinion var. & 9 & 0.698 & +1.973$^{*}$ & +1.432 & -3.863$^{*}$ \\
+Llama-3.1-8B & Cross-cut & 9 & 0.457 & +0.217 & +0.102 & -0.494 \\
+Qwen2.5-7B & Opinion var. & 9 & 0.777 & +1.233 & +2.463 & -0.018 \\
+Qwen2.5-7B & Cross-cut & 9 & 0.634 & +0.177 & +0.309 & -0.139 \\
+Qwen2.5-14B & Opinion var. & 9 & 0.945 & +0.884 & +0.571 & -3.249$^{**}$ \\
+Qwen2.5-14B & Cross-cut & 9 & 0.793 & +0.188 & +0.542$^{*}$ & -0.862$^{*}$ \\
+Qwen2.5-32B & Opinion var. & 9 & 0.908 & +0.377 & +0.091 & -0.979$^{*}$ \\
+Qwen2.5-32B & Cross-cut & 9 & 0.587 & +0.095 & +0.095 & -0.282 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize Fitted on cell means, which is the level at which the design varies; fitting the full quadratic to nine cells and taking $p$ values from the underlying runs would treat within-cell simulation noise as replication. A mixed model with cell as the grouping factor gives the same interaction coefficients at $p = 0.003$, $p < 0.001$ and $p = 0.004$ for the 8, 14 and 32 billion parameter models. Only models passing induction validation are shown. $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
+\end{table}

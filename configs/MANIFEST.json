@@ -175,5 +175,256 @@
    4,
    5
   ]
+ },
+ "E1_T6": {
+  "configs": [
+   "e1_t6/e1t_agreeableness_high.yaml",
+   "e1_t6/e1t_agreeableness_low.yaml",
+   "e1_t6/e1t_conscientiousness_high.yaml",
+   "e1_t6/e1t_conscientiousness_low.yaml",
+   "e1_t6/e1t_extraversion_high.yaml",
+   "e1_t6/e1t_extraversion_low.yaml",
+   "e1_t6/e1t_neuroticism_high.yaml",
+   "e1_t6/e1t_neuroticism_low.yaml",
+   "e1_t6/e1t_norm_baseline.yaml",
+   "e1_t6/e1t_openness_high.yaml",
+   "e1_t6/e1t_openness_low.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ "E2_T6": {
+  "configs": [
+   "e2_t6/e2t_diverse.yaml",
+   "e2_t6/e2t_homog.yaml",
+   "e2_t6/e2t_human_norm.yaml",
+   "e2_t6/e2t_mid.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ "E3_LARGE": {
+  "configs": [
+   "e3_large/e3l_O2_A2.yaml",
+   "e3_large/e3l_O2_A5.yaml",
+   "e3_large/e3l_O2_A8.yaml",
+   "e3_large/e3l_O5_A2.yaml",
+   "e3_large/e3l_O5_A5.yaml",
+   "e3_large/e3l_O5_A8.yaml",
+   "e3_large/e3l_O8_A2.yaml",
+   "e3_large/e3l_O8_A5.yaml",
+   "e3_large/e3l_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E3_MISTRAL7": {
+  "configs": [
+   "e3_mistral7/e3mistral7_O2_A2.yaml",
+   "e3_mistral7/e3mistral7_O2_A5.yaml",
+   "e3_mistral7/e3mistral7_O2_A8.yaml",
+   "e3_mistral7/e3mistral7_O5_A2.yaml",
+   "e3_mistral7/e3mistral7_O5_A5.yaml",
+   "e3_mistral7/e3mistral7_O5_A8.yaml",
+   "e3_mistral7/e3mistral7_O8_A2.yaml",
+   "e3_mistral7/e3mistral7_O8_A5.yaml",
+   "e3_mistral7/e3mistral7_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E3_QWEN7": {
+  "configs": [
+   "e3_qwen7/e3qwen7_O2_A2.yaml",
+   "e3_qwen7/e3qwen7_O2_A5.yaml",
+   "e3_qwen7/e3qwen7_O2_A8.yaml",
+   "e3_qwen7/e3qwen7_O5_A2.yaml",
+   "e3_qwen7/e3qwen7_O5_A5.yaml",
+   "e3_qwen7/e3qwen7_O5_A8.yaml",
+   "e3_qwen7/e3qwen7_O8_A2.yaml",
+   "e3_qwen7/e3qwen7_O8_A5.yaml",
+   "e3_qwen7/e3qwen7_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E3_LLAMA3B": {
+  "configs": [
+   "e3_llama3b/e3llama3b_O2_A2.yaml",
+   "e3_llama3b/e3llama3b_O2_A5.yaml",
+   "e3_llama3b/e3llama3b_O2_A8.yaml",
+   "e3_llama3b/e3llama3b_O5_A2.yaml",
+   "e3_llama3b/e3llama3b_O5_A5.yaml",
+   "e3_llama3b/e3llama3b_O5_A8.yaml",
+   "e3_llama3b/e3llama3b_O8_A2.yaml",
+   "e3_llama3b/e3llama3b_O8_A5.yaml",
+   "e3_llama3b/e3llama3b_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E3_QWEN3B": {
+  "configs": [
+   "e3_qwen3b/e3qwen3b_O2_A2.yaml",
+   "e3_qwen3b/e3qwen3b_O2_A5.yaml",
+   "e3_qwen3b/e3qwen3b_O2_A8.yaml",
+   "e3_qwen3b/e3qwen3b_O5_A2.yaml",
+   "e3_qwen3b/e3qwen3b_O5_A5.yaml",
+   "e3_qwen3b/e3qwen3b_O5_A8.yaml",
+   "e3_qwen3b/e3qwen3b_O8_A2.yaml",
+   "e3_qwen3b/e3qwen3b_O8_A5.yaml",
+   "e3_qwen3b/e3qwen3b_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ "E1_QWEN7": {
+  "configs": [
+   "e1_qwen7/e1qwen7_agreeableness_high.yaml",
+   "e1_qwen7/e1qwen7_agreeableness_low.yaml",
+   "e1_qwen7/e1qwen7_conscientiousness_high.yaml",
+   "e1_qwen7/e1qwen7_conscientiousness_low.yaml",
+   "e1_qwen7/e1qwen7_extraversion_high.yaml",
+   "e1_qwen7/e1qwen7_extraversion_low.yaml",
+   "e1_qwen7/e1qwen7_neuroticism_high.yaml",
+   "e1_qwen7/e1qwen7_neuroticism_low.yaml",
+   "e1_qwen7/e1qwen7_norm_baseline.yaml",
+   "e1_qwen7/e1qwen7_openness_high.yaml",
+   "e1_qwen7/e1qwen7_openness_low.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ "E2_QWEN7": {
+  "configs": [
+   "e2_qwen7/e2qwen7_diverse.yaml",
+   "e2_qwen7/e2qwen7_homog.yaml",
+   "e2_qwen7/e2qwen7_human_norm.yaml",
+   "e2_qwen7/e2qwen7_mid.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ "AB_PROBE": {
+  "configs": [
+   "ab_probe/abpr_e1_norm_baseline.yaml",
+   "ab_probe/abpr_e1_agreeableness_high.yaml",
+   "ab_probe/abpr_e1_agreeableness_low.yaml",
+   "ab_probe/abpr_e1_neuroticism_high.yaml",
+   "ab_probe/abpr_e1_openness_high.yaml",
+   "ab_probe/abpr_e2_homog.yaml",
+   "ab_probe/abpr_e2_mid.yaml",
+   "ab_probe/abpr_e2_diverse.yaml",
+   "ab_probe/abpr_e3_O2_A2.yaml",
+   "ab_probe/abpr_e3_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ "AB_WINT": {
+  "configs": [
+   "ab_wint/abwi_e1_norm_baseline.yaml",
+   "ab_wint/abwi_e1_agreeableness_high.yaml",
+   "ab_wint/abwi_e1_agreeableness_low.yaml",
+   "ab_wint/abwi_e1_neuroticism_high.yaml",
+   "ab_wint/abwi_e1_openness_high.yaml",
+   "ab_wint/abwi_e2_homog.yaml",
+   "ab_wint/abwi_e2_mid.yaml",
+   "ab_wint/abwi_e2_diverse.yaml",
+   "ab_wint/abwi_e3_O2_A2.yaml",
+   "ab_wint/abwi_e3_O8_A8.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ "AB_EXPR": {
+  "configs": [
+   "ab_expr/abex_e1_norm_baseline.yaml",
+   "ab_expr/abex_e1_agreeableness_high.yaml",
+   "ab_expr/abex_e1_agreeableness_low.yaml"
+  ],
+  "seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
  }
 }

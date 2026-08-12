@@ -28,6 +28,24 @@ from scipy import stats as sps
 ROOT = Path(__file__).resolve().parents[1]
 RES = ROOT / "results"
 BASELINE = "e1_norm_baseline"
+# Each experiment family must be contrasted against a baseline run with the SAME model,
+# otherwise a Qwen condition differenced against the Llama baseline measures the model,
+# not the composition. E5 is excluded from paired contrasts entirely: with 3 seeds its
+# t-tests are meaningless (they produce |dz| > 9 artifacts) and its inferential role is
+# sign stability, handled by audit_sign_stability.py.
+AGGREGATOR_VERSION = "2026-08-regime-standardisation"
+
+FAMILY_BASELINE = {"e1": "e1_norm_baseline", "e2": "e1_norm_baseline", "e3": "e1_norm_baseline",
+                   "scale": "e1_norm_baseline",
+                   "e1q": "e1q_norm_baseline", "e2q": "e1q_norm_baseline",
+                   "e3q": "e1q_norm_baseline",
+                   # six-topic replication: contrast against the six-topic baseline, not
+                   # the two-topic one, or the topic set becomes part of the difference
+                   "e1t": "e1t_norm_baseline", "e2t": "e1t_norm_baseline",
+                   # larger-model surface: the centre cell is its own reference,
+                   # since no separate baseline condition is run for it
+                   "e3l": "e3l_O5_A5"}
+SKIP_FAMILIES = {"e5"}
 PRIMARY = ["pol_var", "pol_extremity", "pol_assort", "pol_ei", "crosscut_rate",
            "CI_accuracy_z", "CI_hidden_profile_rate", "CI_medrelerr_z", "CI_diversity",
            "CI_mean_gain_vs_pre", "trait_drift_mean"]
@@ -52,10 +70,66 @@ def derive(df: pd.DataFrame) -> pd.DataFrame:
     # barely move pre->post, so the gain is a difference of near-identical numbers and is
     # swamped by noise. Post-discussion accuracy LEVEL discriminates strongly, so it is the
     # primary CI measure; the gain is retained and reported as a null.
+    def _model_of(cfg: str) -> str:
+        """Which model produced a run, inferred from its condition name.
+
+        Standardisation must be relative to runs from the same model. A z-score taken
+        against the whole dataset changes when unrelated models are added, so the same
+        runs yield different values as the dataset grows, and the published number stops
+        being reproducible from the released data.
+        """
+        c = str(cfg)
+        if "__qwen" in c:
+            return "qwen14"
+        for pre, tag in [("e3qwen3b_", "qwen3b"), ("e3llama3b_", "llama3b"),
+                         ("e1qwen7_", "qwen7"), ("e2qwen7_", "qwen7"), ("e3qwen7_", "qwen7"),
+                         ("e1q_", "qwen14"), ("e2q_", "qwen14"), ("e3q_", "qwen14"),
+                         ("e3l_", "qwen32")]:
+            if c.startswith(pre):
+                return tag
+        return "primary"
+
+    def _regime(row) -> str:
+        """Runs are comparable only if measured the same way on the same model.
+
+        An ablation changes the measurement instrument, so its runs must not enter the
+        reference population used to standardise runs measured with the published
+        instrument. Grouping on model and measurement regime makes a standardised value
+        depend only on runs it is actually comparable with, so adding an experiment
+        elsewhere in the programme cannot change a number already reported.
+        """
+        cfg = str(row.get("config", ""))
+        pa = row.get("probe_anchors", True)
+        wi = row.get("w_interest", 1.0)
+        ie = row.get("interest_on_expressed", False)
+        if cfg.startswith("abpr_"):
+            pa = False
+        elif cfg.startswith("abwi_"):
+            wi = 0.0
+        elif cfg.startswith("abex_"):
+            ie = True
+        pa = True if pd.isna(pa) else bool(pa)
+        wi = 1.0 if pd.isna(wi) else float(wi)
+        ie = False if pd.isna(ie) else bool(ie)
+        return f"{_model_of(cfg)}|pa{int(pa)}|wi{wi:g}|ie{int(ie)}"
+
+    df["_model"] = df.apply(_regime, axis=1)
+    print(f"[aggregate_results {AGGREGATOR_VERSION}] standardising within "
+          f"{df['_model'].nunique()} model-by-regime groups")
+
     def _neg_z(suffix):
+        """Composite of per-item scores, z-scored within each model, then sign-flipped."""
         cols = [c for c in df.columns if c.endswith(suffix)]
-        zs = [(df[c] - df[c].mean()) / df[c].std() for c in cols if df[c].std(skipna=True) > 0]
-        return -pd.concat(zs, axis=1).mean(axis=1) if zs else np.nan
+        if not cols:
+            return np.nan
+        parts = []
+        for c in cols:
+            g = df.groupby("_model")[c]
+            mu, sd = g.transform("mean"), g.transform("std")
+            z = (df[c] - mu) / sd.where(sd > 0)
+            if z.notna().any():
+                parts.append(z)
+        return -pd.concat(parts, axis=1).mean(axis=1) if parts else np.nan
 
     df["CI_accuracy_z"] = _neg_z("__post_collective_sqerr")   # higher = more accurate
     df["CI_medrelerr_z"] = _neg_z("__post_median_relerr")     # higher = more accurate
@@ -64,8 +138,15 @@ def derive(df: pd.DataFrame) -> pd.DataFrame:
 
     for comp, cols in [("POL_composite", ["pol_var", "pol_extremity", "pol_assort", "pol_ei"]),
                        ("CI_composite", ["CI_accuracy_z", "CI_hidden_profile_rate"])]:
-        zs = [(df[c] - df[c].mean()) / df[c].std()
-              for c in cols if c in df and df[c].std(skipna=True) > 0]
+        zs = []
+        for c in cols:
+            if c not in df:
+                continue
+            g = df.groupby("_model")[c]
+            mu, sd = g.transform("mean"), g.transform("std")
+            z = (df[c] - mu) / sd.where(sd > 0)
+            if z.notna().any():
+                zs.append(z)
         df[comp] = pd.concat(zs, axis=1).mean(axis=1) if zs else np.nan
     df = df.copy()          # defragment after column additions
     df["family"] = df.config.str.split("_").str[0]
@@ -122,14 +203,40 @@ def wilcoxon_floor(n):
     return 2.0 / (2 ** n) if n and n > 0 else np.nan
 
 
+
+def baseline_for(family: str) -> str:
+    """Baseline condition for a family.
+
+    Response-surface families run on an additional model have no separate baseline
+    condition: the centre cell of the grid is their reference. Falling back to that rule
+    lets a new model be added without editing this file, and prevents a contrast from
+    silently being taken against a different model's baseline.
+    """
+    if family in FAMILY_BASELINE:
+        return FAMILY_BASELINE[family]
+    if family.startswith("e3") and family != "e3":
+        return f"{family}_O5_A5"
+    if family.startswith(("e1", "e2")) and family not in ("e1", "e2"):
+        return f"e1{family[2:]}_norm_baseline"
+    # ablation families are contrasted against the ablated baseline, not the published
+    # one, so that the switch under test is the only difference within a contrast
+    for tag in ("abpr", "abwi", "abex"):
+        if family == tag:
+            return f"{tag}_e1_norm_baseline"
+    return BASELINE
+
 def paired_contrasts(df):
     rng = np.random.default_rng(0)
-    base = df[df.config == BASELINE]
-    if base.empty:
-        return pd.DataFrame()
     rows = []
     for cfg in sorted(df.config.unique()):
-        if cfg == BASELINE:
+        fam = cfg.split("_")[0]
+        if fam in SKIP_FAMILIES:
+            continue
+        base_cfg = baseline_for(fam)
+        if cfg == base_cfg:
+            continue
+        base = df[df.config == base_cfg]
+        if base.empty:
             continue
         merged = df[df.config == cfg].merge(base, on="seed", suffixes=("", "_base"))
         for m in PRIMARY:
@@ -147,7 +254,7 @@ def paired_contrasts(df):
             except ValueError:
                 w_p = 1.0
             lo, hi = boot_ci(d, rng)
-            rows.append(dict(family=cfg.split("_")[0], config=cfg, metric=m, n_pairs=len(a),
+            rows.append(dict(family=fam, config=cfg, baseline=base_cfg, metric=m, n_pairs=len(a),
                              mean_baseline=float(b.mean()), mean_condition=float(a.mean()),
                              mean_diff=float(d.mean()), ci_lo=lo, ci_hi=hi,
                              cohens_dz=cohens_dz(d), hedges_g=hedges_g(a, b),
@@ -176,13 +283,16 @@ def mixed_models(df, path):
         if not cols:
             continue
         for fam in sorted(df.family.dropna().unique()):
-            sub = df[(df.family == fam) | (df.config == BASELINE)]
+            if fam in SKIP_FAMILIES:
+                continue
+            base_cfg = baseline_for(fam)
+            sub = df[(df.family == fam) | (df.config == base_cfg)]
             long = sub.melt(id_vars=["config", "seed"], value_vars=cols,
                             var_name="unit", value_name="value").dropna()
             if long.config.nunique() < 2 or len(long) < 20:
                 continue
             try:
-                md = smf.mixedlm(f"value ~ C(config, Treatment('{BASELINE}'))", long,
+                md = smf.mixedlm(f"value ~ C(config, Treatment('{base_cfg}'))", long,
                                  groups=long["seed"]).fit(reml=True)
                 lines.append(f"===== {label} | family {fam} | n_obs={len(long)} =====\n{md.summary()}")
             except Exception as exc:  # noqa: BLE001

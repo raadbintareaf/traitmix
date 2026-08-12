@@ -1,0 +1,6 @@
+inherit: ../base.yaml
+name: abex_e1_norm_baseline
+society:
+  interest_on_expressed: true
+llm:
+  max_workers: 32

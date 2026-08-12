@@ -1,0 +1,42 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.6069
+    conscientiousness: 0.6844
+    extraversion: 0.6056
+    agreeableness: 0.6794
+    neuroticism: 0.4438
+  sigma:
+    openness: 0.1288
+    conscientiousness: 0.1463
+    extraversion: 0.1475
+    agreeableness: 0.1256
+    neuroticism: 0.1663
+  corr: independent
+name: e2t_human_norm
+_norms_source: Kajonius & Johnson (2019), Europe's Journal of Psychology 15(2), 260-275,
+  doi:10.5964/ejop.v15i2.1671, Table A1 (N=320,128). Domain scales 4-20 rescaled to
+  [0,1] as (M-4)/16.
+topics:
+  source: custom
+  items:
+  - id: T_guncontrol
+    statement: Stricter national gun-control laws would make society safer overall.
+  - id: T_immigration
+    statement: Current levels of immigration benefit the country more than they cost
+      it.
+  - id: T_carbontax
+    statement: A national carbon tax should be introduced to reduce emissions, even
+      if it raises household energy costs.
+  - id: T_nuclear
+    statement: Nuclear power should be expanded as a main source of the country's
+      electricity.
+  - id: T_ubi
+    statement: The government should provide an unconditional basic income to every
+      adult citizen.
+  - id: T_socialmedia
+    statement: Social media platforms should be legally required to verify the age
+      of their users.
+  - id: T_neutral_filler
+    statement: Pineapple belongs on pizza.
+    role: filler

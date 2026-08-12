@@ -1,0 +1,33 @@
+inherit: ../base.yaml
+composition:
+  mu:
+    openness: 0.5
+    conscientiousness: 0.5
+    extraversion: 0.5
+    agreeableness: 0.5
+    neuroticism: 0.5
+  sigma: 0.25
+name: e2t_diverse
+topics:
+  source: custom
+  items:
+  - id: T_guncontrol
+    statement: Stricter national gun-control laws would make society safer overall.
+  - id: T_immigration
+    statement: Current levels of immigration benefit the country more than they cost
+      it.
+  - id: T_carbontax
+    statement: A national carbon tax should be introduced to reduce emissions, even
+      if it raises household energy costs.
+  - id: T_nuclear
+    statement: Nuclear power should be expanded as a main source of the country's
+      electricity.
+  - id: T_ubi
+    statement: The government should provide an unconditional basic income to every
+      adult citizen.
+  - id: T_socialmedia
+    statement: Social media platforms should be legally required to verify the age
+      of their users.
+  - id: T_neutral_filler
+    statement: Pineapple belongs on pizza.
+    role: filler
